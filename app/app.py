@@ -22,7 +22,7 @@ st.markdown(
 
 def load_data_jogos():
     data_jogos = pd.read_csv(
-        r"D:\Ricardo Ramos\Desktop\fornicador_database\fornicador\dados_csv\proximos_jogos.csv"
+        r"https://github.com/RedLegacy227/fornicador/blob/main/dados_csv/proximos_jogos.csv"
     )
     data_jogos = data_jogos[
         [
