@@ -8,11 +8,11 @@ st.set_page_config(
     page_icon=":bar_chart:",
     layout="wide",
 )
-st.title("⚽ Soccer Data Statistics ⚽")
+st.title("⚽ Next Games ⚽")
 
 st.markdown(
     """
-    <span style="color: green">**⭐ Do your Analysis here ⭐**</span><br>
+    <span style="color: green">**⭐ Soccer Data Analysis ⭐**</span><br>
     <span style="color: orange">*Betting is not about who Win's!!!*</span><br>
     <span style="color: #FFc048">** By RedLegacy227.**</span>  
     """,
