@@ -287,10 +287,13 @@ with col5:
     )
 
 
-df_filtrado = df_jogos.query(
-    "@valor_min_home <= FT_Odd_H <= @valor_max_home and @valor_min_draw <= FT_Odd_D <= @valor_max_draw and\
-                              @valor_min_away <= FT_Odd_A <= @valor_max_away and @valor_min_over <= FT_Odd_Over25 <= @valor_max_over"
-)
+df_filtrado = df_jogos[
+    (valor_min_home <= df_jogos['FT_Odd_H']) & (df_jogos['FT_Odd_H'] <= valor_max_home) &
+    (valor_min_draw <= df_jogos['FT_Odd_D']) & (df_jogos['FT_Odd_D'] <= valor_max_draw) &
+    (valor_min_away <= df_jogos['FT_Odd_A']) & (df_jogos['FT_Odd_A'] <= valor_max_away) &
+    (valor_min_over <= df_jogos['FT_Odd_Over25']) & (df_jogos['FT_Odd_Over25'] <= valor_max_over)
+]
+
 
 st.subheader("Jogos do Dia")
 st.markdown(f"Total jogos para o dia  de Hoje : {len(df_filtrado)} jogos")
