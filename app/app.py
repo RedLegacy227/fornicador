@@ -4,7 +4,6 @@ import numpy as np
 from PIL import Image
 
 
-
 st.set_page_config(
     page_title="Fornicador Data Analysis",
     page_icon=":bar_chart:",
@@ -20,6 +19,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
 
 def load_data_jogos():
     data_jogos = pd.read_csv(
@@ -93,7 +93,7 @@ def load_data_jogos():
             "Average_Goals_Scored_by_Home_Teams",
             "Average_Goals_Conceded_by_Home_Teams",
             "Average_Goals_Scored_by_Away_Teams",
-            "Average Goals Conceded by Away Teams",
+            "Average_Goals_Conceded_by_Away_Teams",
             "Media_primeiro_gol_home",
             "Media_primeiro_gol_away",
             "Media_primeiro_gol_home_sofrido",
@@ -203,7 +203,7 @@ def load_data_jogos():
             "Goleada_Home",
             "Goleada_Away",
             "O_qualquer_Empate_Home",
-            "O_qualquer_Empate_Away"
+            "O_qualquer_Empate_Away",
         ]
     ]
 
@@ -287,10 +287,14 @@ with col5:
 
 
 df_filtrado = df_jogos[
-    (valor_min_home <= df_jogos['FT_Odd_H']) & (df_jogos['FT_Odd_H'] <= valor_max_home) &
-    (valor_min_draw <= df_jogos['FT_Odd_D']) & (df_jogos['FT_Odd_D'] <= valor_max_draw) &
-    (valor_min_away <= df_jogos['FT_Odd_A']) & (df_jogos['FT_Odd_A'] <= valor_max_away) &
-    (valor_min_over <= df_jogos['FT_Odd_Over25']) & (df_jogos['FT_Odd_Over25'] <= valor_max_over)
+    (valor_min_home <= df_jogos["FT_Odd_H"])
+    & (df_jogos["FT_Odd_H"] <= valor_max_home)
+    & (valor_min_draw <= df_jogos["FT_Odd_D"])
+    & (df_jogos["FT_Odd_D"] <= valor_max_draw)
+    & (valor_min_away <= df_jogos["FT_Odd_A"])
+    & (df_jogos["FT_Odd_A"] <= valor_max_away)
+    & (valor_min_over <= df_jogos["FT_Odd_Over25"])
+    & (df_jogos["FT_Odd_Over25"] <= valor_max_over)
 ]
 
 
@@ -335,7 +339,7 @@ tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10 = st.tabs(
         "Lay Zebra - Alison",
         "Correcções - Alison",
         "Correct Score - Alison",
-        "LTD - Alison"
+        "LTD - Alison",
     ]
 )
 with tab1:
@@ -528,8 +532,6 @@ with tab8:
         & (df_correccoes["FT_Odd_A"] >= midpoint - 1)
         & (df_correccoes["FT_Odd_A"] <= midpoint + 1)
         & (df_correccoes["FT_Odd_D"] >= 3.55)
-        
-        
     )
 
     df_correccoes = df_correccoes[filtro_correccoes]
@@ -547,49 +549,42 @@ with tab8:
 with tab9:
     filtro_cs_2x2 = (
         (df_cs_2x2["FT_Odd_BTTS_Yes"] <= 1.7)
-        &(df_cs_2x2["FT_Odd_Over25"] <= 1.7)
+        & (df_cs_2x2["FT_Odd_Over25"] <= 1.7)
         & (abs(df_cs_2x2["FT_Odd_H"] - df_cs_2x2["FT_Odd_A"]) <= 2)
-        & (df_cs_2x2["Porc_BTTS_Yes_Home"]> 33)
-        
-        
+        & (df_cs_2x2["Porc_BTTS_Yes_Home"] > 33)
     )
     df_cs_2x2 = df_cs_2x2[filtro_cs_2x2]
     st.subheader("Trend Back 2x2")
     st.markdown(f"Total Games Today  : {len(df_cs_2x2)} games")
     st.dataframe(df_cs_2x2)
-    
+
     filtro_cs_3x1 = (
         (df_cs_3x1["FT_Odd_BTTS_Yes"] <= 1.7)
-        &(df_cs_3x1["FT_Odd_Over25"] <= 1.7)
-        &(df_cs_3x1["FT_Odd_H"] <= 2.20)
-        
-        
+        & (df_cs_3x1["FT_Odd_Over25"] <= 1.7)
+        & (df_cs_3x1["FT_Odd_H"] <= 2.20)
     )
     df_cs_3x1 = df_cs_3x1[filtro_cs_3x1]
     st.subheader("Trend Back 3x1")
     st.markdown(f"Total Games Today  : {len(df_cs_3x1)} games")
     st.dataframe(df_cs_3x1)
-    
+
     filtro_cs_1x3 = (
         (df_cs_1x3["FT_Odd_BTTS_Yes"] <= 1.7)
-        &(df_cs_1x3["FT_Odd_Over25"] <= 1.7)
-        &(df_cs_1x3["FT_Odd_A"] <= 2.20)
-        
-        
+        & (df_cs_1x3["FT_Odd_Over25"] <= 1.7)
+        & (df_cs_1x3["FT_Odd_A"] <= 2.20)
     )
     df_cs_1x3 = df_cs_1x3[filtro_cs_1x3]
     st.subheader("Trend Back 1x3")
     st.markdown(f"Total Games Today  : {len(df_cs_1x3)} games")
     st.dataframe(df_cs_1x3)
-    
-with tab10:
 
+with tab10:
     filtro_ltd_H = (
-        (df_ltd_h["FT_Odd_H"] >= 13.5)
-       # & (
+        df_ltd_h["FT_Odd_H"]
+        >= 13.5
+        # & (
         #    (df_ltd_h["Power_Ranking_FT_A"] - df_ltd_h["Power_Ranking_FT_H"])
         #    >= 2)
-
     )
     df_ltd_h = df_ltd_h[filtro_ltd_H]
     st.subheader("Trend LTD Zebra Home")
@@ -597,12 +592,12 @@ with tab10:
     st.dataframe(df_ltd_h)
 
     filtro_ltd_A = (
-        (df_ltd_a["FT_Odd_A"] >= 13.5)
-        #& (
+        df_ltd_a["FT_Odd_A"]
+        >= 13.5
+        # & (
         #    (df_ltd_a["Power_Ranking_FT_H"] - df_ltd_a["Power_Ranking_FT_A"])
         #    >= 2
-        #)
-       
+        # )
     )
     df_ltd_a = df_ltd_a[filtro_ltd_A]
     st.subheader("Trend LTD Zebra Away")
