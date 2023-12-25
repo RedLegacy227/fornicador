@@ -2,6 +2,9 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from PIL import Image
+import warnings
+warnings.filterwarnings("ignore")
+
 
 st.set_page_config(
     page_title="Fornicador Data Analysis",
@@ -18,7 +21,10 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+with st.sidebar:
+    st.sidebar.header("Fornicador BD")
 
+st.markdown("""---""")
 
 def load_data_jogos():
     data_jogos = pd.read_csv(
@@ -53,141 +59,155 @@ def load_data_jogos():
             "CV_HDA",
             "P_expt_H",
             "P_expt_A",
-            "Media_Saldo_Golos_H_HT",
-            "CV_Saldo_Golos_H_HT",
-            "Media_Saldo_Golos_H_FT",
-            "CV_Saldo_Golos_H_FT",
             "PPJ_H",
             "CV_PPJ_H",
-            "Power_Ranking_HT_H",
-            "CV_Power_Ranking_HT_H",
-            "Power_Ranking_FT_H",
-            "CV_Power_Ranking_FT_H",
-            "Average_Goals_Scored_by_Home_Teams",
-            "Average_Goals_Conceded_by_Home_Teams",
-            "Media_Total_1HT_H",
-            "CV_Media_Total_1HT_H",
-            "Media_Total_2HT_H",
-            "CV_Media_Total_2HT_H",
-            "Media_Geral_GM_H",
-            "Media_Geral_GS_H",
-            "Media_GM_H_6j",
-            "Media_GS_H_6j",
-            "Media_primeiro_gol_home",
-            "Media_primeiro_gol_home_sofrido",
-            "Porc_Marcou_Primeiro_Golo_H",
-            "Porc_Marcou_Primeiro_Golo_H_1P",
-            "Porc_Sofreu_Primeiro_Golo_H",
-            "Porc_Sofreu_Primeiro_Golo_H_1P",
-            "media_chutes_home",
-            "media_chutes_por_gol_H",
-            "media_movel_chutes_por_gol_H",
-            "media_ataques_perigosos_por_gol_H",
-            "media_movel_ataques_perigosos_por_gol_H",
-            "media_cartoes_amarelos_H",
-            "media_movel_media_cartoes_amarelos_H",
-            "media_cartoes_vermelhos_H",
-            "media_movel_media_cartoes_vermelhos_H",
-            "Media_FT_Corners_H_MAR",
-            "CV_Corners_H_MAR",
-            "Media_FT_Corners_H_SFR",
-            "CV_Corners_H_SFR",
-            "Media_VG_H",
-            "CV_VG_H",
-            "Media_CG_H",
-            "CV_CG_H",
-            "Porc_Over05HT_Home",
-            "Porc_Over15HT_Home",
-            "Porc_Under05HT_Home",
-            "Porc_Over15FT_Home",
-            "Porc_Over25FT_Home",
-            "Porc_BTTS_Home",
-            "Porc_Home_Win",
-            "0x0_Home",
-            "1x0_Home",
-            "1x1_Home",
-            "0x1_Home",
-            "2x0_Home",
-            "2x1_Home",
-            "2x2_Home",
-            "0x2_Home",
-            "1x2_Home",
-            "3x0_Home",
-            "3x1_Home",
-            "3x2_Home",
-            "3x3_Home",
-            "0x3_Home",
-            "1x3_Home",
-            "2x3_Home",
-            "Goleada_Home",
-            "O_qualquer_Empate_Home",
-            "Media_Saldo_Golos_A_HT",
-            "CV_Saldo_Golos_A_HT",
-            "Media_Saldo_Golos_A_FT",
-            "CV_Saldo_Golos_A_FT",
             "PPJ_A",
             "CV_PPJ_A",
+            "Power_Ranking_HT_H",
+            "CV_Power_Ranking_HT_H",
             "Power_Ranking_HT_A",
             "CV_Power_Ranking_HT_A",
+            "Power_Ranking_FT_H",
+            "CV_Power_Ranking_FT_H",
             "Power_Ranking_FT_A",
             "CV_Power_Ranking_FT_A",
-            "Average_Goals_Scored_by_Away_Teams",
-            "Average Goals Conceded by Away Teams",
-            "Media_Total_1HT_A",
-            "CV_Media_Total_1HT_A",
-            "Media_Total_2HT_A",
-            "CV_Media_Total_2HT_A",
+            "Media_Geral_GM_H",
+            "Media_Geral_GS_H",
             "Media_Geral_GM_A",
             "Media_Geral_GS_A",
+            "Media_GM_H_6j",
+            "Media_GS_H_6j",
             "Media_GM_A_6j",
             "Media_GS_A_6j",
+            "Media_Saldo_Golos_H_HT",
+            "CV_Saldo_Golos_H_HT",
+            "Media_Saldo_Golos_A_HT",
+            "CV_Saldo_Golos_A_HT",
+            "Media_Saldo_Golos_H_FT",
+            "CV_Saldo_Golos_H_FT",
+            "Media_Saldo_Golos_A_FT",
+            "CV_Saldo_Golos_A_FT",
+            "Media_Total_1HT_H",
+            "CV_Media_Total_1HT_H",
+            "Media_Total_1HT_A",
+            "CV_Media_Total_1HT_A",
+            "Media_Total_2HT_H",
+            "CV_Media_Total_2HT_H",
+            "Media_Total_2HT_A",
+            "CV_Media_Total_2HT_A",
+            "Average_Goals_Scored_by_Home_Teams",
+            "Average_Goals_Conceded_by_Home_Teams",
+            "Average_Goals_Scored_by_Away_Teams",
+            "Average Goals Conceded by Away Teams",
+            "Media_primeiro_gol_home",
             "Media_primeiro_gol_away",
+            "Media_primeiro_gol_home_sofrido",
             "Media_primeiro_gol_away_sofrido",
-            "Porc_Marcou_Primeiro_Golo_A",
+            "Porc_Marcou_Primeiro_Golo_H_1P",
             "Porc_Marcou_Primeiro_Golo_A_1P",
-            "Porc_Sofreu_Primeiro_Golo_A",
+            "Porc_Sofreu_Primeiro_Golo_H_1P",
             "Porc_Sofreu_Primeiro_Golo_A_1P",
+            "Porc_Marcou_Primeiro_Golo_H",
+            "Porc_Marcou_Primeiro_Golo_A",
+            "Porc_Sofreu_Primeiro_Golo_H",
+            "Porc_Sofreu_Primeiro_Golo_A",
+            "media_chutes_home",
             "media_chutes_away",
+            "media_chutes_por_gol_H",
             "media_chutes_por_gol_A",
+            "media_movel_chutes_por_gol_H",
             "media_movel_chutes_por_gol_A",
+            "media_ataques_perigosos_por_gol_H",
             "media_ataques_perigosos_por_gol_A",
+            "media_movel_ataques_perigosos_por_gol_H",
             "media_movel_ataques_perigosos_por_gol_A",
+            "media_cartoes_amarelos_H",
             "media_cartoes_amarelos_A",
+            "media_movel_media_cartoes_amarelos_H",
             "media_movel_media_cartoes_amarelos_A",
+            "media_cartoes_vermelhos_H",
             "media_cartoes_vermelhos_A",
+            "media_movel_media_cartoes_vermelhos_H",
             "media_movel_media_cartoes_vermelhos_A",
+            "Media_FT_Corners_H_MAR",
+            "CV_Corners_H_MAR",
             "Media_FT_Corners_A_MAR",
             "CV_Corners_A_MAR",
+            "Media_FT_Corners_H_SFR",
+            "CV_Corners_H_SFR",
             "Media_FT_Corners_A_SFR",
             "CV_Corners_A_SFR",
+            "Media_VG_H",
+            "CV_VG_H",
             "Media_VG_A",
             "CV_VG_A",
+            "Media_CG_H",
+            "CV_CG_H",
             "Media_CG_A",
             "CV_CG_A",
+            "Porc_Over05HT_Home",
             "Porc_Over05HT_Away",
-            "Porc_Over15HT_Away",
+            "Porc_Under05HT_Home",
             "Porc_Under05HT_Away",
+            "Porc_Over15HT_Home",
+            "Porc_Over15HT_Away",
+            "Porc_Under15HT_Home",
+            "Porc_Under15HT_Away",
+            "Porc_Over15FT_Home",
             "Porc_Over15FT_Away",
+            "Porc_Under15FT_Home",
+            "Porc_Under15FT_Away",
+            "Porc_Over25FT_Home",
             "Porc_Over25FT_Away",
-            "Porc_BTTS_Away",
-            "Porc_Away_Win",
+            "Porc_Under25FT_Home",
+            "Porc_Under25FT_Away",
+            "Porc_Over35FT_Home",
+            "Porc_Over35FT_Away",
+            "Porc_Under35FT_Home",
+            "Porc_Under35FT_Away",
+            "Porc_BTTS_Yes_Home",
+            "Porc_BTTS_Yes_Away",
+            "Porc_BTTS_No_Home",
+            "Porc_BTTS_No_Away",
+            "Porc_Home_Win_HT",
+            "Porc_Away_Win_HT",
+            "Porc_Home_Win_FT",
+            "Porc_Away_Win_FT",
+            "0x0_Home",
             "0x0_Away",
+            "1x0_Home",
             "1x0_Away",
+            "1x1_Home",
             "1x1_Away",
+            "0x1_Home",
             "0x1_Away",
+            "2x0_Home",
             "2x0_Away",
+            "2x1_Home",
             "2x1_Away",
+            "2x2_Home",
             "2x2_Away",
+            "0x2_Home",
             "0x2_Away",
+            "1x2_Home",
             "1x2_Away",
+            "3x0_Home",
             "3x0_Away",
+            "3x1_Home",
             "3x1_Away",
+            "3x2_Home",
             "3x2_Away",
+            "3x3_Home",
             "3x3_Away",
+            "0x3_Home",
             "0x3_Away",
+            "1x3_Home",
             "1x3_Away",
+            "2x3_Home",
             "2x3_Away",
+            "Goleada_Home",
             "Goleada_Away",
+            "O_qualquer_Empate_Home",
             "O_qualquer_Empate_Away",
         ]
     ]
@@ -325,7 +345,7 @@ with tab1:
         # (df_over_ht05.Porc_Over05HT_Home >=70)&
         # (df_over_ht05.Porc_Over05HT_Away >= 70)&
         (df_over_ht05.Media_Total_1HT_H >= 0.65)
-        & (df_over_ht05.Media_Total_1HT_A >= 0.65)
+        & (df_over_ht05.Media_Total_1HT_A >= 0.70)
         & (df_over_ht05.CV_Media_Total_1HT_H <= 0.7)
         & (df_over_ht05.CV_Media_Total_1HT_A <= 0.7)
     )
@@ -338,9 +358,9 @@ with tab1:
         (df_over_ft15.Porc_Over15FT_Home >= 65)
         & (df_over_ft15.Porc_Over15FT_Away >= 65)
         & (df_over_ft15.Media_CG_H >= 3.6)
-        & (df_over_ft25.CV_CG_H <= 0.8)
+        & (df_over_ft25.CV_CG_H <= 0.7)
         & (df_over_ft15.Media_CG_A >= 3.6)
-        & (df_over_ft25.CV_CG_A <= 0.8)
+        & (df_over_ft25.CV_CG_A <= 0.7)
         & (abs(df_over_ft15.Class_Home - df_over_ft15.Class_Away) >= 3)
     )
     df_over_ft15 = df_over_ft15[filtro_Over_ft15]
@@ -351,10 +371,10 @@ with tab1:
     filtro_Over_25 = (
         (df_over_ft25.Porc_Over25FT_Home >= 65)
         & (df_over_ft25.Porc_Over25FT_Away >= 65)
-        & (df_over_ft25.Media_CG_H >= 3.6)
-        & (df_over_ft25.CV_CG_H <= 0.8)
-        & (df_over_ft25.Media_CG_A >= 3.6)
-        & (df_over_ft25.CV_CG_A <= 0.8)
+        & (df_over_ft25.Media_CG_H >= 3.8)
+        & (df_over_ft25.CV_CG_H <= 0.7)
+        & (df_over_ft25.Media_CG_A >= 3.8)
+        & (df_over_ft25.CV_CG_A <= 0.7)
     )
     df_over_25 = df_over_ft25[filtro_Over_25]
     st.subheader("Trend Over 25 FT")
@@ -364,10 +384,10 @@ with tab1:
 
 with tab2:
     filtro_2tmp = (
-        (df_2tmp.Media_GM_H_6j > 1.3)
-        & (df_2tmp.Media_GM_A_6j > 1.3)
-        & (df_2tmp.CV_Media_Total_2HT_H <= 0.8)
-        & (df_2tmp.CV_Media_Total_2HT_A <= 0.8)
+        (df_2tmp.Media_GM_H_6j > 1.4)
+        & (df_2tmp.Media_GM_A_6j > 1.4)
+        & (df_2tmp.CV_Media_Total_2HT_H <= 0.7)
+        & (df_2tmp.CV_Media_Total_2HT_A <= 0.7)
     )
 
     df_2tmp = df_2tmp[filtro_2tmp]
@@ -387,7 +407,7 @@ with tab3:
     filtro_lay0x1 = (
         (df_l_0x1["0x1_Home"] == 0)
         & (df_l_0x1["0x1_Away"] == 0)
-        & (df_l_0x1["Media_CG_H"] >= 3.5)
+        & (df_l_0x1["Media_CG_H"] >= 3.8)
         & (df_l_0x1["CV_CG_H"] <= 0.8)
         & (df_l_0x1["Media_primeiro_gol_home"] < df_l_0x1["Media_primeiro_gol_away"])
         & (df_l_0x1["Media_primeiro_gol_home"] <= 50)
@@ -408,7 +428,7 @@ with tab4:
     filtro_lay1x0 = (
         (df_l_1x0["1x0_Home"] == 0)
         & (df_l_1x0["1x0_Away"] == 0)
-        & (df_l_1x0["Media_CG_A"] >= 3.5)
+        & (df_l_1x0["Media_CG_A"] >= 3.8)
         & (df_l_1x0["CV_CG_A"] <= 0.8)
         & (df_l_1x0["Media_primeiro_gol_away"] < df_l_1x0["Media_primeiro_gol_home"])
         & (df_l_1x0["Media_primeiro_gol_away"] <= 50)
@@ -428,9 +448,9 @@ with tab4:
 
 with tab5:
     filtro_lay_home = (
-        ((df_l_Home["Power_Ranking_FT_A"] - df_l_Home["Power_Ranking_FT_H"]) > 2)
+        ((df_l_Home["Power_Ranking_FT_A"] - df_l_Home["Power_Ranking_FT_H"]) > 2.5)
         & (df_l_Home["CV_Power_Ranking_FT_A"] <= 0.8)
-        & (df_l_Home["Media_CG_A"] >= 3.5)
+        & (df_l_Home["Media_CG_A"] >= 3.6)
         & (df_l_Home["CV_CG_A"] <= 0.85)
     )
     df_l_Home = df_l_Home[filtro_lay_home]
@@ -447,7 +467,7 @@ with tab5:
 
 with tab6:
     filtro_lay_away = (
-        ((df_l_Away["Power_Ranking_FT_H"] - df_l_Away["Power_Ranking_FT_A"]) >= 2)
+        ((df_l_Away["Power_Ranking_FT_H"] - df_l_Away["Power_Ranking_FT_A"]) >= 2.5)
         & (df_l_Away["CV_Power_Ranking_FT_H"] <= 0.8)
         & (df_l_Away["Media_CG_H"] > 3.6)
         & (df_l_Away["CV_CG_H"] <= 0.85)
@@ -531,6 +551,7 @@ with tab9:
         (df_cs_2x2["FT_Odd_BTTS_Yes"] <= 1.7)
         &(df_cs_2x2["FT_Odd_Over25"] <= 1.7)
         & (abs(df_cs_2x2["FT_Odd_H"] - df_cs_2x2["FT_Odd_A"]) <= 2)
+        & (df_cs_2x2["Porc_BTTS_Yes_Home"]> 33)
         
         
     )
