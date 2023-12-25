@@ -21,10 +21,6 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-with st.sidebar:
-    st.sidebar.header("Fornicador BD")
-
-st.markdown("""---""")
 
 def load_data_jogos():
     data_jogos = pd.read_csv(
