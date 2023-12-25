@@ -116,8 +116,9 @@ ligas = [
 ligas_ordenadas = sorted(ligas)
 
 with st.sidebar:
-    st.sidebar.header("Base de Dados Completa")
-    selected_league = st.sidebar.selectbox("Ligas", ligas_ordenadas)
+    st.sidebar.header("⚽ Leagues Data Base ⚽")
+    st.sidebar.image("Fornicador.tif", use_column_width=True)
+    selected_league = st.sidebar.selectbox("Leagues", ligas_ordenadas)
 
 
 def load_data(league):
@@ -128,6 +129,6 @@ def load_data(league):
     return data
 
 df = load_data(selected_league)
-st.subheader("Liga Selecionada - " + selected_league)
+st.subheader("Selected League - " + selected_league)
 
 st.dataframe(df)
