@@ -8,7 +8,7 @@ warnings.filterwarnings("ignore")
 
 st.set_page_config(
     page_title="Fornicador Data Base - Next Games",
-    page_icon=":bar_chart:",
+    page_icon=":female-detective:",
     layout="wide",
 )
 st.title("⚽ Next Games ⚽")
