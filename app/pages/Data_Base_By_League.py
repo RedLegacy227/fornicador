@@ -130,5 +130,6 @@ def load_data(league):
 
 df = load_data(selected_league)
 st.subheader("Selected League - " + selected_league)
-st.markdown(f"Total Games Available: {len(selected_league)} games")
+total_games = len(df)
+st.markdown(f"Total Games Available: {total_games} games")
 st.dataframe(df)
