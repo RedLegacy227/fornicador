@@ -7,7 +7,7 @@ warnings.filterwarnings("ignore")
 
 
 st.set_page_config(
-    page_title="Fornicador Data Analysis",
+    page_title="Fornicador Data Base - Leagues Data",
     page_icon=":bar_chart:",
     layout="wide",
 )
@@ -21,11 +21,6 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-with st.sidebar:
-    st.sidebar.header("Fornicador BD")
-
-st.markdown("""---""")
-
 
 ligas = [
     'VIETNAME - LIGA V',

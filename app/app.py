@@ -5,7 +5,7 @@ from PIL import Image
 
 
 st.set_page_config(
-    page_title="Fornicador Data Analysis",
+    page_title="Fornicador Data Base - Next Games",
     page_icon=":bar_chart:",
     layout="wide",
 )
