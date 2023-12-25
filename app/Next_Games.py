@@ -208,7 +208,7 @@ def load_data_jogos():
             "Goleada_Home",
             "Goleada_Away",
             "O_qualquer_Empate_Home",
-            "O_qualquer_Empate_Away",
+            "O_qualquer_Empate_Away"
         ]
     ]
 
