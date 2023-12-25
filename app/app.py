@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from PIL import Image
+import warnings
+warnings.filterwarnings("ignore")
 
 
 st.set_page_config(

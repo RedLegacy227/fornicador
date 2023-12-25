@@ -11,7 +11,7 @@ st.set_page_config(
     page_icon=":bar_chart:",
     layout="wide",
 )
-st.title("⚽ Base de Dados por Liga ⚽")
+st.title("⚽ Leagues Data Base ⚽")
 
 st.markdown(
     """
