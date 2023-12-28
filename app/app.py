@@ -348,8 +348,8 @@ with tab1:
     filtro_Over_ht = (
         # (df_over_ht05.Porc_Over05HT_Home >=70)&
         # (df_over_ht05.Porc_Over05HT_Away >= 70)&
-        (df_over_ht05.Media_Total_1HT_H >= 0.90)
-        & (df_over_ht05.Media_Total_1HT_A >= 1)
+        (df_over_ht05.Media_Total_1HT_H >= 0.80)
+        & (df_over_ht05.Media_Total_1HT_A >= 0.90)
         & (df_over_ht05.CV_Media_Total_1HT_H <= 0.7)
         & (df_over_ht05.CV_Media_Total_1HT_A <= 0.7)
     )
