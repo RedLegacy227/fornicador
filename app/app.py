@@ -373,8 +373,8 @@ with tab1:
     st.dataframe(df_over_ft15)
 
     filtro_Over_25 = (
-        (df_over_ft25.Porc_Over25FT_Home >= 75)
-        & (df_over_ft25.Porc_Over25FT_Away >= 75)
+        (df_over_ft25.Porc_Over25FT_Home >= 70)
+        & (df_over_ft25.Porc_Over25FT_Away >= 70)
         & (df_over_ft25.Media_CG_H >= 3.7)
         & (df_over_ft25.CV_CG_H <= 0.7)
         & (df_over_ft25.Media_CG_A >= 3.7)
@@ -388,8 +388,8 @@ with tab1:
 
 with tab2:
     filtro_2tmp = (
-        (df_2tmp.Media_GM_H_6j > 1.5)
-        & (df_2tmp.Media_GM_A_6j > 1.5)
+        (df_2tmp.Media_GM_H_6j > 1.6)
+        & (df_2tmp.Media_GM_A_6j > 1.6)
         & (df_2tmp.CV_Media_Total_2HT_H <= 0.7)
         & (df_2tmp.CV_Media_Total_2HT_A <= 0.7)
     )
@@ -412,7 +412,7 @@ with tab3:
         (df_l_0x1["0x1_Home"] == 0)
         & (df_l_0x1["0x1_Away"] == 0)
         & (df_l_0x1["0x0_Home"] == 0)
-        & (df_l_0x1["0x0_Away"] == 0)
+        #& (df_l_0x1["0x0_Away"] == 0)
         & (df_l_0x1["Media_CG_H"] >= 3.8)
         & (df_l_0x1["CV_CG_H"] <= 0.8)
         & (df_l_0x1["Media_primeiro_gol_home"] <= 52)
@@ -433,7 +433,7 @@ with tab4:
     filtro_lay1x0 = (
         (df_l_1x0["1x0_Home"] == 0)
         & (df_l_1x0["1x0_Away"] == 0)
-        & (df_l_1x0["0x0_Home"] == 0)
+        #& (df_l_1x0["0x0_Home"] == 0)
         & (df_l_1x0["0x0_Away"] == 0)
         & (df_l_1x0["Media_CG_A"] >= 3.8)
         & (df_l_1x0["CV_CG_A"] <= 0.8)
