@@ -348,8 +348,8 @@ with tab1:
     filtro_Over_ht = (
         # (df_over_ht05.Porc_Over05HT_Home >=70)&
         # (df_over_ht05.Porc_Over05HT_Away >= 70)&
-        (df_over_ht05.Media_Total_1HT_H >= 0.65)
-        & (df_over_ht05.Media_Total_1HT_A >= 0.70)
+        (df_over_ht05.Media_Total_1HT_H >= 0.90)
+        & (df_over_ht05.Media_Total_1HT_A >= 1)
         & (df_over_ht05.CV_Media_Total_1HT_H <= 0.7)
         & (df_over_ht05.CV_Media_Total_1HT_A <= 0.7)
     )
@@ -359,8 +359,8 @@ with tab1:
     st.dataframe(df_over_ht)
 
     filtro_Over_ft15 = (
-        (df_over_ft15.Porc_Over15FT_Home >= 65)
-        & (df_over_ft15.Porc_Over15FT_Away >= 65)
+        (df_over_ft15.Porc_Over15FT_Home >= 75)
+        & (df_over_ft15.Porc_Over15FT_Away >= 75)
         & (df_over_ft15.Media_CG_H >= 3.6)
         & (df_over_ft25.CV_CG_H <= 0.7)
         & (df_over_ft15.Media_CG_A >= 3.6)
@@ -373,11 +373,11 @@ with tab1:
     st.dataframe(df_over_ft15)
 
     filtro_Over_25 = (
-        (df_over_ft25.Porc_Over25FT_Home >= 65)
-        & (df_over_ft25.Porc_Over25FT_Away >= 65)
-        & (df_over_ft25.Media_CG_H >= 3.8)
+        (df_over_ft25.Porc_Over25FT_Home >= 75)
+        & (df_over_ft25.Porc_Over25FT_Away >= 75)
+        & (df_over_ft25.Media_CG_H >= 3.7)
         & (df_over_ft25.CV_CG_H <= 0.7)
-        & (df_over_ft25.Media_CG_A >= 3.8)
+        & (df_over_ft25.Media_CG_A >= 3.7)
         & (df_over_ft25.CV_CG_A <= 0.7)
     )
     df_over_25 = df_over_ft25[filtro_Over_25]
@@ -388,8 +388,8 @@ with tab1:
 
 with tab2:
     filtro_2tmp = (
-        (df_2tmp.Media_GM_H_6j > 1.4)
-        & (df_2tmp.Media_GM_A_6j > 1.4)
+        (df_2tmp.Media_GM_H_6j > 1.5)
+        & (df_2tmp.Media_GM_A_6j > 1.5)
         & (df_2tmp.CV_Media_Total_2HT_H <= 0.7)
         & (df_2tmp.CV_Media_Total_2HT_A <= 0.7)
     )
@@ -411,10 +411,11 @@ with tab3:
     filtro_lay0x1 = (
         (df_l_0x1["0x1_Home"] == 0)
         & (df_l_0x1["0x1_Away"] == 0)
+        & (df_l_0x1["0x0_Home"] == 0)
+        & (df_l_0x1["0x0_Away"] == 0)
         & (df_l_0x1["Media_CG_H"] >= 3.8)
         & (df_l_0x1["CV_CG_H"] <= 0.8)
-        & (df_l_0x1["Media_primeiro_gol_home"] < df_l_0x1["Media_primeiro_gol_away"])
-        & (df_l_0x1["Media_primeiro_gol_home"] <= 50)
+        & (df_l_0x1["Media_primeiro_gol_home"] <= 52)
     )
     df_l_0x1 = df_l_0x1[filtro_lay0x1]
     st.subheader("Lay 0x1")
@@ -432,10 +433,11 @@ with tab4:
     filtro_lay1x0 = (
         (df_l_1x0["1x0_Home"] == 0)
         & (df_l_1x0["1x0_Away"] == 0)
+        & (df_l_1x0["0x0_Home"] == 0)
+        & (df_l_1x0["0x0_Away"] == 0)
         & (df_l_1x0["Media_CG_A"] >= 3.8)
         & (df_l_1x0["CV_CG_A"] <= 0.8)
-        & (df_l_1x0["Media_primeiro_gol_away"] < df_l_1x0["Media_primeiro_gol_home"])
-        & (df_l_1x0["Media_primeiro_gol_away"] <= 50)
+        & (df_l_1x0["Media_primeiro_gol_away"] <= 52)
     )
 
     df_l_1x0 = df_l_1x0[filtro_lay1x0]
@@ -452,10 +454,10 @@ with tab4:
 
 with tab5:
     filtro_lay_home = (
-        ((df_l_Home["Power_Ranking_FT_A"] - df_l_Home["Power_Ranking_FT_H"]) > 2.5)
-        & (df_l_Home["CV_Power_Ranking_FT_A"] <= 0.8)
-        & (df_l_Home["Media_CG_A"] >= 3.6)
-        & (df_l_Home["CV_CG_A"] <= 0.85)
+        ((df_l_Home["Power_Ranking_FT_A"] - df_l_Home["Power_Ranking_FT_H"]) > 2.75)
+        & (df_l_Home["CV_Power_Ranking_FT_A"] <= 0.7)
+        & (df_l_Home["Media_CG_A"] >= 3.8)
+        & (df_l_Home["CV_CG_A"] <= 0.80)
     )
     df_l_Home = df_l_Home[filtro_lay_home]
     st.subheader("Lay Home")
@@ -471,10 +473,10 @@ with tab5:
 
 with tab6:
     filtro_lay_away = (
-        ((df_l_Away["Power_Ranking_FT_H"] - df_l_Away["Power_Ranking_FT_A"]) >= 2.5)
-        & (df_l_Away["CV_Power_Ranking_FT_H"] <= 0.8)
-        & (df_l_Away["Media_CG_H"] > 3.6)
-        & (df_l_Away["CV_CG_H"] <= 0.85)
+        ((df_l_Away["Power_Ranking_FT_H"] - df_l_Away["Power_Ranking_FT_A"]) >= 2.75)
+        & (df_l_Away["CV_Power_Ranking_FT_H"] <= 0.7)
+        & (df_l_Away["Media_CG_H"] > 3.8)
+        & (df_l_Away["CV_CG_H"] <= 0.80)
     )
     df_l_Away = df_l_Away[filtro_lay_away]
     st.subheader("Lay Away")
@@ -553,7 +555,7 @@ with tab9:
         (df_cs_2x2["FT_Odd_BTTS_Yes"] <= 1.7)
         & (df_cs_2x2["FT_Odd_Over25"] <= 1.7)
         & (abs(df_cs_2x2["FT_Odd_H"] - df_cs_2x2["FT_Odd_A"]) <= 2)
-        & (df_cs_2x2["Porc_BTTS_Yes_Home"] > 33)
+        & ((df_cs_2x2["Porc_BTTS_Yes_Home"] + df_cs_2x2["Porc_BTTS_Yes_Away"]) >= 60)
     )
     df_cs_2x2 = df_cs_2x2[filtro_cs_2x2]
     st.subheader("Trend Back 2x2")
