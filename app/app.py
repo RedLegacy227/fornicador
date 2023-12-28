@@ -422,7 +422,7 @@ with tab3:
     st.markdown("""---""")
     st.markdown(
         """
-                For this Filter you can enter to max odd 13. We close position at 60 Minutes if 0x0 or 80 Minutes if 1x0. Our goal is not to loose full stake.
+                For this Filter you can enter to max odd 18. We close position at 65 Minutes if 0x0 or 80 Minutes if 1x0. Our goal is not to loose full stake.
                 """
     )
     st.markdown(f"Total Games Today : {len(df_l_0x1)} games")
@@ -445,7 +445,7 @@ with tab4:
     st.markdown("""---""")
     st.markdown(
         """
-                For this Filter you can enter to max odd 13. We close position at 60 Minutes if 0x0 or 80 Minutes if 1x0. Our goal is not to loose full stake.
+                For this Filter you can enter to max odd 18. We close position at 65 Minutes if 0x0 or 80 Minutes if 1x0. Our goal is not to loose full stake.
                 """
     )
     st.markdown(f"Total Games Today : {len(df_l_1x0)} games")
