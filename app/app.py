@@ -346,12 +346,12 @@ tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10 = st.tabs(
 )
 with tab1:
     filtro_Over_ht = (
-        (df_over_ht05.Porc_Over05HT_Home >= 82)
-        &(df_over_ht05.Porc_Over05HT_Away >= 85)
-        #(df_over_ht05.Media_Total_1HT_H >= 0.80)
-        #& (df_over_ht05.Media_Total_1HT_A >= 0.90)
-        & (df_over_ht05.CV_Media_Total_1HT_H <= 0.7)
-        & (df_over_ht05.CV_Media_Total_1HT_A <= 0.7)
+        (df_over_ht05.Porc_Over05HT_Home >= 80)
+        &(df_over_ht05.Porc_Over05HT_Away >= 82)
+        (df_over_ht05.Media_Total_1HT_H >= 0.70)
+        & (df_over_ht05.Media_Total_1HT_A >= 0.70)
+        & (df_over_ht05.CV_Media_Total_1HT_H <= 0.9)
+        & (df_over_ht05.CV_Media_Total_1HT_A <= 0.9)
     )
     df_over_ht = df_over_ht05[filtro_Over_ht]
     st.subheader("Trend Over 0,5 HT")
