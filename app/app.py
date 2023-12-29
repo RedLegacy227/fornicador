@@ -346,8 +346,8 @@ tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10 = st.tabs(
 )
 with tab1:
     filtro_Over_ht = (
-        (df_over_ht05.Porc_Over05HT_Home >= 75)
-        & (df_over_ht05.Porc_Over05HT_Away >= 75)
+        (df_over_ht05.Porc_Over05HT_Home >= 65)
+        & (df_over_ht05.Porc_Over05HT_Away >= 70)
         & (df_over_ht05.Media_Total_1HT_H >= 0.70)
         & (df_over_ht05.Media_Total_1HT_A >= 0.70)
         & (df_over_ht05.CV_Media_Total_1HT_H <= 0.9)
