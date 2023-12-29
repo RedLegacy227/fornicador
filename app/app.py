@@ -348,8 +348,8 @@ with tab1:
     filtro_Over_ht = (
         (df_over_ht05.Media_CG_H >= 3.8)
         & (df_over_ht05.Media_CG_A >= 3.8)
-        & (df_over_ht05.Media_Total_1HT_H >= 0.65)
-        & (df_over_ht05.Media_Total_1HT_A >= 0.65)
+        & (df_over_ht05.Media_Saldo_Golos_H_HT > 1)
+        & (df_over_ht05.Media_Saldo_Golos_A_HT > 1)
         & (df_over_ht05.CV_CG_H <= 0.9)
         & (df_over_ht05.CV_CG_A <= 0.9)
     )
