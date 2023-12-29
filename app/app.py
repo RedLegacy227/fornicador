@@ -350,8 +350,8 @@ with tab1:
         & (df_over_ht05.Media_CG_A >= 3.8)
         & (df_over_ht05.Media_Total_1HT_H >= 0.65)
         & (df_over_ht05.Media_Total_1HT_A >= 0.65)
-        & (df_over_ht05.CV_CG_H <= 0.8)
-        & (df_over_ht05.CV_CG_A <= 0.8)
+        & (df_over_ht05.CV_CG_H <= 0.9)
+        & (df_over_ht05.CV_CG_A <= 0.9)
     )
     df_over_ht = df_over_ht05[filtro_Over_ht]
     st.subheader("Trend Over 0,5 HT")
@@ -362,9 +362,9 @@ with tab1:
         #(df_over_ft15.Porc_Over15FT_Home >= 75)
        # & (df_over_ft15.Porc_Over15FT_Away >= 75)
         (df_over_ft15.Media_CG_H >= 3.8)
-        & (df_over_ft25.CV_CG_H <= 0.8)
+        & (df_over_ft25.CV_CG_H <= 0.9)
         & (df_over_ft15.Media_CG_A >= 3.8)
-        & (df_over_ft25.CV_CG_A <= 0.8)
+        & (df_over_ft25.CV_CG_A <= 0.9)
         & (abs(df_over_ft15.Class_Home - df_over_ft15.Class_Away) >= 3)
     )
     df_over_ft15 = df_over_ft15[filtro_Over_ft15]
@@ -374,11 +374,11 @@ with tab1:
 
     filtro_Over_25 = (
         #(df_over_ft25.Porc_Over25FT_Home >= 70)
-        (df_over_ft25.Porc_Over25FT_Away >= 70)
+        (df_over_ft25.Porc_Over25FT_Away >= 65)
         & (df_over_ft25.Media_CG_H >= 3.8)
-        & (df_over_ft25.CV_CG_H <= 0.8)
+        & (df_over_ft25.CV_CG_H <= 0.9)
         & (df_over_ft25.Media_CG_A >= 3.8)
-        & (df_over_ft25.CV_CG_A <= 0.8)
+        & (df_over_ft25.CV_CG_A <= 0.9)
     )
     df_over_25 = df_over_ft25[filtro_Over_25]
     st.subheader("Trend Over 25 FT")
