@@ -408,8 +408,8 @@ with tab2:
 
 with tab3:
     filtro_lay0x1 = (
-        (df_l_0x1["0x1_Home"] == 0)
-        & (df_l_0x1["0x1_Away"] == 0)
+        #(df_l_0x1["0x1_Home"] == 0)
+         (df_l_0x1["0x1_Away"] == 0)
         #& (df_l_0x1["0x0_Home"] == 0)
         #& (df_l_0x1["0x0_Away"] == 0)
         & (df_l_0x1["Media_CG_H"] >= 3.8)
@@ -431,7 +431,7 @@ with tab3:
 with tab4:
     filtro_lay1x0 = (
         (df_l_1x0["1x0_Home"] == 0)
-        & (df_l_1x0["1x0_Away"] == 0)
+        #& (df_l_1x0["1x0_Away"] == 0)
         #& (df_l_1x0["0x0_Home"] == 0)
         #& (df_l_1x0["0x0_Away"] == 0)
         & (df_l_1x0["Media_CG_A"] >= 3.8)
